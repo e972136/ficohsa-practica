@@ -54,7 +54,7 @@ public class CandidatoImp implements CandidatoService{
 
     @Override
     public ResponseEntity<CandidatoRequest> validarCandidato(CandidatoRequest candidatoRequest) {
-        log.error("Patito:"+candidatoRequest.toString());
+
         String[] dnaArr = candidatoRequest.getDna();
         boolean v = sentinel.isMutant(dnaArr);
         Candidato candidato=guardar(dnaArr,v);
