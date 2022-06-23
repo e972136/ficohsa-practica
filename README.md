@@ -51,6 +51,12 @@ Desde la terminal de IntelliJ (o directorio raiz)
 mvn clean install
 ```
 
+- Para ver la version en linea
+
+```sh
+https://gaspar-xmen.herokuapp.com/swagger-ui/index.html#/
+```
+
 # Estrategia
 
 Para el desarrollo de la api se tomaron las siguientes consideraciones
@@ -70,12 +76,22 @@ Una vez desarrollado la API, se procede a su publicacion en Heroku
 
 - El puerto asignado es 8081 (por si el nativo 8080 esta ocupado)
 - En postgresql debe haber una base de datos llamada "hatleycastle"
-- Hay una instancia en Heroku
 
 | DESCRIPCION | URL | Peticion | Respuesta
 | ------ | ------ | ------ | ------ |
 | Servicio Validar Mutante | localhost:8081/mutant |  Post  | 200 Valida / 403 Humano
 | Servicio Estadisticas | localhost:8081/stats |  Get  | JSON
+| Servicio listar | localhost:8081/listar |  Get  | JSON
+| Servicio limpiar | localhost:8081/limpiar |  Delete  | JSON
+
+- Hay una instancia en Heroku, para ver la version en linea directo en swagger.
+- se se desea usar los mismos endpoint, reemplazar "localhost:8081" por "gaspar-xmen.herokuapp.com" 
+en postman o el cliente rest que esten usando
+
+```sh
+https://gaspar-xmen.herokuapp.com/swagger-ui/index.html#/
+```
+
 
 # Datos
 
