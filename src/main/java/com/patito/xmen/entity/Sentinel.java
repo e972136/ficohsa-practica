@@ -116,9 +116,7 @@ public class Sentinel {
      * @param data codigo ADN
      */
      public boolean isMutant(String []data){
-//        String validadores[]={"A","T","C","G"};
         int nSecuencias = 0;
-
         for(int f=0;f<data.length;f++)
         {
             for(int c=0;c<data[f].length();c++){
