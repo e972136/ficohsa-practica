@@ -55,6 +55,9 @@ mvn clean install
 
 Para el desarrollo de la api se tomaron las siguientes consideraciones
 
+* Validacion codigo DNA: se valida que no este null(@notnull), que no este vacia(@notempty) 
+y que al menos tenga 4 filas y siempre 4 columnas como minimo (@dnavalidator)
+
 - Primero: se considera una secuencia exitosa si se tiene 4 codigos iguales consecutivos (Vertical, Horizontal, Diagonal)
 - Segunda: Debe haber por lo menos dos secuencias exitosas
 - Tercero: Segun lo anterior, determinamos si es mutante, o si es humano, y retornamos la respuesta correspondiente
@@ -65,7 +68,8 @@ Una vez desarrollado la API, se procede a su publicacion en Heroku
 
 # Api
 
-- El puerto por defecto es 8081 (por si el nativo 8080 esta ocupado)
+- El puerto asignado es 8081 (por si el nativo 8080 esta ocupado)
+- En postgresql debe haber una base de datos llamada "hatleycastle"
 - Hay una instancia en Heroku
 
 | DESCRIPCION | URL | Peticion | Respuesta

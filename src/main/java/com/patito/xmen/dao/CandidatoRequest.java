@@ -1,5 +1,6 @@
 package com.patito.xmen.dao;
 
+import com.patito.xmen.util.DnaValidation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,5 +19,6 @@ import javax.validation.constraints.NotNull;
 public class CandidatoRequest {
     @NotNull
     @NotEmpty
+    @DnaValidation
     String dna[];
 }
