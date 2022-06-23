@@ -12,6 +12,7 @@ public interface CandidatoService {
     /**
      * Almacena el ADN del individuo
      * @param dna,v
+     * @return  Candidato ya sea nuevo o el de la bd
      */
     @Transactional
     Candidato guardar(String dna[],Boolean v);

@@ -54,6 +54,7 @@ public class CandidatoImp implements CandidatoService{
 
     @Override
     public ResponseEntity<CandidatoRequest> validarCandidato(CandidatoRequest candidatoRequest) {
+        log.error("Patito:"+candidatoRequest.toString());
         String[] dnaArr = candidatoRequest.getDna();
         boolean v = sentinel.isMutant(dnaArr);
         Candidato candidato=guardar(dnaArr,v);
@@ -74,10 +75,10 @@ public class CandidatoImp implements CandidatoService{
             return ResponseEntity.ok(new Estadisticas());
         }
 
-        Double esMutante = (double)collect.get(true);
-        Double noEsMutante = (double)collect.get(false);
-        double total = esMutante/(esMutante+noEsMutante);
-        Estadisticas of = Estadisticas.of(esMutante, noEsMutante, BigDecimal.valueOf(total).setScale(2, RoundingMode.CEILING).doubleValue());
+        Double esMutante = (double)collect.getOrDefault(true,0L);
+        Double noEsMutante = (double)collect.getOrDefault(false,0L);
+
+        Estadisticas of = Estadisticas.of(esMutante,noEsMutante,0.0);
         return ResponseEntity.ok(of);
     }
 }
