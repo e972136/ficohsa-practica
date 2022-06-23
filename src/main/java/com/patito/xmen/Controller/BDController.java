@@ -38,7 +38,7 @@ public class BDController {
     }
 
     @GetMapping("/listar")
-    @Operation(summary = "listar BD")
+    @Operation(summary = "listar BD ")
     public ResponseEntity<List<Candidato>> listar() throws Exception {
         List<Candidato> all=null;
         try{
