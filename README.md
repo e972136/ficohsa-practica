@@ -5,8 +5,10 @@
 - [Tecnologias](#Tecnologias)
 - [Arquitectura](#Arquitectura)
 - [Instalacion](#Instalacion)
+- [Estrategia](#Estrategia)
 - [Api](#Api)
 - [Datos de prueba](#Datos)
+- [Peticiones Agresivas](#Peticiones)
 - [Licencia](#Licencia)
 
 # Tecnologias
@@ -14,6 +16,7 @@
 * [Java 11] - Lenguaje de programacion
 * [SpringBoot 2.7.0] - Plataforma de desarrollo
 * [apache-maven-3.8.2] - Manejo dependencias 
+* [BlueJ] - Desarrollo de la logica del programa
 * [IntelliJ IDEA 2021.2.1 (Community Edition)] - Ide de Desarrollo
 * [Docker] - Virtualizacion BD (Opcional)
 * [PostgreSQL] - Base de datos
@@ -47,6 +50,18 @@ Desde la terminal de IntelliJ (o directorio raiz)
 ```sh
 mvn clean install
 ```
+
+# Estrategia
+
+Para el desarrollo de la api se tomaron las siguientes consideraciones
+
+- Primero: se considera una secuencia exitosa si se tiene 4 codigos iguales consecutivos (Vertical, Horizontal, Diagonal)
+- Segunda: Debe haber por lo menos dos secuencias exitosas
+- Tercero: Segun lo anterior, determinamos si es mutante, o si es humano, y retornamos la respuesta correspondiente
+- Cuarto: De ser humano, retornara 403, de ser mutante 200.
+- Quinto: Si el ADN no esta registrado, se procede a ser almacenado para determinar estadisticas futuras.
+
+Una vez desarrollado la API, se procede a su publicacion en Heroku
 
 # Api
 
@@ -89,6 +104,11 @@ Response:
   "count_human_dna": 0,
   "ratio": 0
 }
+
+# Peticiones
+
+La persistencia dependera de donde este alojado el servicio, y cantidad de replicas existentes.
+Esto se puede manejar usando Eureka/Kubernetes, que distribuyen el manejo de cargas. 
 
 # Licencia
 
