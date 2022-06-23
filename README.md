@@ -79,9 +79,9 @@ Una vez desarrollado la API, se procede a su publicacion en Heroku
 
 # Datos
 
-- /mutant
+- /mutant: Evalua si el candidato es un mutante
 
-- Para Mutante
+  - Para Mutante
 
 Request:
 {
@@ -99,7 +99,7 @@ Request:
 
 Response: 403 - Forbiden
 
-- /stats
+- /stats: Retorna una estadistica del ratio de mutantes con respecto a humanos.
 
 Response:
 
@@ -108,6 +108,12 @@ Response:
   "count_human_dna": 0,
   "ratio": 0
 }
+
+- Estos Endpoints estan para hacer pruebas en la bd, una vez pasado a producction, se recomiendo comentarlos
+
+  - /limpiar: Hace un limpiado de la base de datos
+  - /listar: Lista los elementos almacenados en la base de datos
+
 
 # Peticiones
 

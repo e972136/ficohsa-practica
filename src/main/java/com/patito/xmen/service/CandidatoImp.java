@@ -72,7 +72,7 @@ public class CandidatoImp implements CandidatoService{
 //        Map<Boolean, List<Boolean>> collect = repository.findAll().stream().map(r -> r.getEsMutante()).collect(Collectors.groupingBy(r -> r));
 //        Map<Boolean, List<Candidato>> collect = repository.findAll().stream().collect(Collectors.groupingBy(r -> r.getEsMutante()));
         if(collect.isEmpty()){
-            return ResponseEntity.ok(new Estadisticas());
+            return ResponseEntity.ok(Estadisticas.of(0.0,0.0,1.0));
         }
 
         Double esMutante = (double)collect.getOrDefault(true,0L);

@@ -21,7 +21,11 @@ public class Estadisticas {
     Double ratio;
 
     public Double getRatio() {
-        double total = count_mutant_dna/(count_mutant_dna+count_human_dna);
+        double suma = (count_mutant_dna+count_human_dna);
+        if(suma==0){
+            return 0.0;
+        }
+        double total = count_mutant_dna/suma;
         ratio = BigDecimal.valueOf(total).setScale(3, RoundingMode.CEILING).doubleValue();
         return ratio;
     }
